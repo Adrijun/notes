@@ -41,13 +41,16 @@ export const AllPosts = () => {
       </div>
     );
   });
-
+  let logout = `/`;
   return (
     <>
       <h1>Dina sparade inlägg</h1>
       {Api}
       <Link to={NewPost}>
-        <button className="NewPostBtn">Nytt inlägg</button>
+        <button>Nytt inlägg</button>
+        <Link to={logout}>
+          <button>Logga ut</button>
+        </Link>
       </Link>
     </>
   );

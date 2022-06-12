@@ -3,8 +3,7 @@ import axios from "axios";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Editor as TinyMCEEditor } from "tinymce";
-import { setConstantValue } from "typescript";
-import { AllPosts } from "./AllPosts";
+import "./newPost.css";
 
 export function NewPost() {
   interface IPostAPI {
@@ -47,15 +46,17 @@ export function NewPost() {
     e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>
   ) {
     let name: string = e.target.name;
-    if (name == "title") {
+    if (name === "title") {
       setTitle(e.target.value);
     }
   }
   let loggedin = `/AllPosts/`;
   return (
     <>
-      <label htmlFor="title">titel</label>
-      <input type="text" name="title" onChange={SaveTitle} />
+      <section className="title">
+        <label htmlFor="title">Titel</label>
+        <input type="text" name="title" onChange={SaveTitle} />
+      </section>
 
       <Editor
         onEditorChange={handleUpdate}

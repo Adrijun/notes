@@ -6,9 +6,9 @@ import { Post } from "../models/Post";
 import { Editor } from "@tinymce/tinymce-react";
 import { Editor as TinyMCEEditor } from "tinymce";
 import { log } from "console";
+import { Link } from "react-router-dom";
 
 export const ChangePost = () => {
-
   interface IPostAPI {
     title: string;
     description: string;
@@ -42,7 +42,7 @@ export const ChangePost = () => {
   }, [PostId]);
 
   const editorRef = useRef<any>(null);
-  
+
   /// Uppdaterar content
   const valuesOfPost = Post?.description;
 
@@ -50,7 +50,7 @@ export const ChangePost = () => {
   const [description, setDescription] = useState<string>();
 
   function SaveContent() {
-    if (editorRef.current){
+    if (editorRef.current) {
       console.log(editorRef.current.getContent());
     }
     axios
@@ -63,15 +63,17 @@ export const ChangePost = () => {
       });
   }
 
-   // Hämtar värdena ifrån titel och editorn
-   const handleUpdate = (value: string, editor: TinyMCEEditor) => {
+  // Hämtar värdena ifrån titel och editorn
+  const handleUpdate = (value: string, editor: TinyMCEEditor) => {
     setDescription(value);
     console.log(value);
   };
 
-    // Gör om värdena till objekt som ska skicka till API
-    const ObjContent = { title: Post?.title, description };
-    console.log(ObjContent);
+  // Gör om värdena till objekt som ska skicka till API
+  const ObjContent = { title: Post?.title, description };
+  console.log(ObjContent);
+
+  let loggedin = `/AllPosts/`;
 
   return (
     <>
@@ -114,7 +116,12 @@ export const ChangePost = () => {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <button onClick={SaveContent}>Spara</button>
+      <button className="SaveBtn" onClick={SaveContent}>
+        Spara
+      </button>
+      <Link to={loggedin}>
+        <button className="ReturnBtn">Tillbaka</button>
+      </Link>
     </>
   );
 };

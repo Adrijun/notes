@@ -1,26 +1,31 @@
 import { Link } from "react-router-dom";
+import "./loggIn.css";
+export function Loggin() {
+  let Admin = {
+    username: "test",
+    password: "test",
+  };
 
-export function Loggin(){
+  let loggedin = `/AllPosts/`;
 
-    let Admin = {
-        username: 'test',
-        password: 'test'
-    }
+  return (
+    <>
+      <h1>Välkommen</h1>
+      <section className="loggIn">
+        <label htmlFor="username">Användarnamn</label>
+        <br />
+        <input type="text" name="username" />
+        <br />
 
-    let loggedin = `/AllPosts/`;
+        <label htmlFor="Password">Lösenord</label>
+        <br />
+        <input type="text" name="Password" />
+        <br />
 
-    return ( <>
-    <h1>Loggin</h1>
-
-      <label htmlFor="username">username</label><br />
-      <input type="text" name="username" /><br />
-
-      <label htmlFor="Password">Password</label><br />
-      <input type="text" name="Password" /><br />
-
-      <Link to={loggedin}>
+        <Link to={loggedin}>
           <button>Logga in</button>
         </Link>
-      </>
-    )
+      </section>
+    </>
+  );
 }

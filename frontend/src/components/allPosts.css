@@ -1,34 +1,11 @@
-.rows {
-  background-color: rgba(110, 149, 207, 0.411);
-  display: flex;
-  justify-content: space-between;
-  margin: 5%;
-}
-
 h1 {
   text-align: center;
   margin: 2%;
 }
 
-.NewPostBtn {
-  border: 1px solid black;
-  height: 30px;
-  width: 10%;
-  margin-left: 40%;
-}
-/* 
-button {
-  height: 100%;
-  border: 1px solid black;
-  background-color: rgba(0, 136, 255, 0.286); 
- }
-.button {
+.rows {
+  background-color: lightgray;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  margin: 5%;
 }
-.lastbutton {
-  text-align: center;
-  background-color: rgba(13, 0, 255, 0.532);
-  border: 1px solid black;
-  color: white;
-} */
