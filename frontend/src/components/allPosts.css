@@ -1,0 +1,31 @@
+.rows {
+    background-color: rgba(110, 149, 207, 0.411);
+    display: flex;
+    justify-content:space-between;
+    margin: 5%;
+}
+
+h1{
+    background-color: rgba(165, 42, 42, 0.192);
+    text-align: center;
+    margin: 2%;
+}
+
+button{
+    height: 100%;
+    border: 1px solid black;
+    background-color: rgba(0, 136, 255, 0.286);
+}
+.button{
+    display: flex;
+    justify-content: end;
+}
+.lastbutton{
+    margin: 5%;
+    height: 50px;
+    width: 95%;
+    text-align: center;
+    background-color: rgba(13, 0, 255, 0.532);
+    border: 1px solid black;
+    color: white;
+}
