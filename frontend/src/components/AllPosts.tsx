@@ -30,13 +30,13 @@ export const AllPosts = () => {
     return (
       <div key={post.id} className="rows">
         <h2>{post.title}</h2>
-  <div className="button">
-        <Link to={readFile}>
-          <button>Visa</button>
-        </Link>
-        <Link to={ChangeFile}>
-          <button>Ändra</button>
-        </Link>
+        <div className="button">
+          <Link to={readFile}>
+            <button>Visa</button>
+          </Link>
+          <Link to={ChangeFile}>
+            <button>Ändra</button>
+          </Link>
         </div>
       </div>
     );
@@ -44,11 +44,11 @@ export const AllPosts = () => {
 
   return (
     <>
-      <h1>Välkommen till dina inlägg!</h1>
+      <h1>Dina sparade inlägg</h1>
       {Api}
       <Link to={NewPost}>
-          <button className="lastbutton">nytt inlägg</button>
-        </Link>
+        <button className="NewPostBtn">Nytt inlägg</button>
+      </Link>
     </>
   );
 };

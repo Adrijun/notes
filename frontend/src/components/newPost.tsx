@@ -1,8 +1,10 @@
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Editor as TinyMCEEditor } from "tinymce";
 import { setConstantValue } from "typescript";
+import { AllPosts } from "./AllPosts";
 
 export function NewPost() {
   interface IPostAPI {
@@ -40,20 +42,21 @@ export function NewPost() {
   // Gör om värdena till objekt som ska skicka till API
   const ObjContent = { title, description };
 
-
   // använder oss av inputs values
-  function SaveTitle(e:ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>){
-    let name:string = e.target.name;
-    if(name == 'title' ){
-        setTitle( e.target.value);
+  function SaveTitle(
+    e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>
+  ) {
+    let name: string = e.target.name;
+    if (name == "title") {
+      setTitle(e.target.value);
     }
   }
- 
+  let loggedin = `/AllPosts/`;
   return (
     <>
       <label htmlFor="title">titel</label>
       <input type="text" name="title" onChange={SaveTitle} />
-      
+
       <Editor
         onEditorChange={handleUpdate}
         value={description}
@@ -91,9 +94,10 @@ export function NewPost() {
         }}
       />
 
-      {/* <button onClick={log}>Log editor content</button> */}
-
       <button onClick={SaveContent}>Spara</button>
+      <Link to={loggedin}>
+        <button>Tillbaka</button>
+      </Link>
     </>
   );
 }

@@ -1,0 +1,17 @@
+body {
+  background-color: whitesmoke;
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+button {
+  border-radius: 3px;
+  font-size: 1.3rem;
+  width: auto;
+  height: auto;
+
+  cursor: pointer;
+}

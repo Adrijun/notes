@@ -75,7 +75,7 @@ router.put("/:id", function (req, res, next) {
           return res.json(err);
         }
         console.log(result);
-        res.json("Ny Post sparad");
+        res.json("Ändrad Post sparad");
       }
     );
   } catch (err) {

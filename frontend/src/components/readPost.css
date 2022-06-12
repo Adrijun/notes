@@ -1,4 +1,11 @@
-.post{
-    background-color: rgba(18, 114, 209, 0.34);
-    margin: 5%;
+.post {
+  background-color: rgba(18, 114, 209, 0.34);
+  margin: 5%;
+}
+
+.ReturnBtn {
+  border: 1px solid black;
+  height: 30px;
+  width: 10%;
+  margin-left: 40%;
 }
