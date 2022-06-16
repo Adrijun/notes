@@ -63,7 +63,7 @@ export const ChangePost = () => {
       });
   }
 
-  // Hämtar värdena ifrån titel och editorn
+  // Hämtar värdena ifrån editorn
   const handleUpdate = (value: string, editor: TinyMCEEditor) => {
     setDescription(value);
     console.log(value);
@@ -82,7 +82,6 @@ export const ChangePost = () => {
       <Editor
         onEditorChange={handleUpdate}
         value={description}
-        // tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
         onInit={(evt, editor) => (editorRef.current = editor)}
         initialValue={valuesOfPost}
         init={{

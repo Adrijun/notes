@@ -32,7 +32,7 @@ export function NewPost() {
 
   const editorRef = useRef<any>(null);
 
-  // Hämtar värdena ifrån titel och editorn
+  // Hämtar värdena ifrån editorn
   const handleUpdate = (value: string, editor: TinyMCEEditor) => {
     setDescription(value);
     console.log(value);

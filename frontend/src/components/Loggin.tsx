@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import "./loggIn.css";
 export function Loggin() {
   let Admin = {
-    username: "test",
-    password: "test",
+    username: "admin",
+    password: "admin",
   };
 
   let loggedin = `/AllPosts/`;

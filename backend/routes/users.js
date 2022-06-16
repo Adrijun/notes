@@ -20,7 +20,7 @@ router.get("/", function (req, res, next) {
   });
 });
 
-// Hämtar saker med hjälp av id
+// Hämtar posts med hjälp av id
 router.get("/:id", function (req, res) {
   req.app.locals.con.connect(function (err) {
     if (err) {
