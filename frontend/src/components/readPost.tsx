@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { IPost } from "../models/Ipost";
 import { Post } from "../models/Post";
 import "./readPost.css";
+import parse from "html-react-parser";
 
 export const ReadPost = () => {
   const [Post, setPost] = useState<Post>();
@@ -28,24 +29,22 @@ export const ReadPost = () => {
       console.log("rätt");
       axios
         .get<IPost>("http://localhost:3000/users/" + PostId)
-        .then((response) => {
+        .then(response => {
           let GetPostsFormApi = response.data;
           return setPost(GetPostsFormApi);
         });
     }
   }, [PostId]);
-
   let loggedin = `/AllPosts/`;
+
+  var string = parse(
+    `<h2>${Post?.title}</h2> <p>${Post?.description}</p> <p>Datum som du skrev detta inlägg: ${Post?.date}</p>`
+  );
 
   return (
     <>
       <h1>Visa</h1>
-
-      <div className="post">
-        <h2>{Post?.title}</h2>
-        <p>{Post?.description}</p>
-        <p>Datum som du skrev detta inlägg: {Post?.date}</p>
-      </div>
+      <div className="post">{string}</div>
 
       <Link to={loggedin}>
         <button className="ReturnBtn">Tillbaka</button>

@@ -5,7 +5,6 @@ import { IPost } from "../models/Ipost";
 import { Post } from "../models/Post";
 import { Editor } from "@tinymce/tinymce-react";
 import { Editor as TinyMCEEditor } from "tinymce";
-import { log } from "console";
 import { Link } from "react-router-dom";
 
 export const ChangePost = () => {
@@ -34,7 +33,7 @@ export const ChangePost = () => {
       console.log("rätt");
       axios
         .get<IPost>("http://localhost:3000/users/" + PostId)
-        .then((response) => {
+        .then(response => {
           let GetPostsFormApi = response.data;
           return setPost(GetPostsFormApi);
         });
@@ -55,15 +54,15 @@ export const ChangePost = () => {
     }
     axios
       .put<IPostAPI>("http://localhost:3000/users/" + PostId, ObjContent)
-      .then((res) => {
+      .then(res => {
         console.log(res);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err, "Inte skickat");
       });
   }
 
-  // Hämtar värdena ifrån editorn
+  // Hämtar värdena ifrån titel och editorn
   const handleUpdate = (value: string, editor: TinyMCEEditor) => {
     setDescription(value);
     console.log(value);
@@ -82,6 +81,7 @@ export const ChangePost = () => {
       <Editor
         onEditorChange={handleUpdate}
         value={description}
+        // tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
         onInit={(evt, editor) => (editorRef.current = editor)}
         initialValue={valuesOfPost}
         init={{
@@ -115,9 +115,7 @@ export const ChangePost = () => {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <button className="SaveBtn" onClick={SaveContent}>
-        Spara
-      </button>
+      <button onClick={SaveContent}>Spara</button>
       <Link to={loggedin}>
         <button className="ReturnBtn">Tillbaka</button>
       </Link>

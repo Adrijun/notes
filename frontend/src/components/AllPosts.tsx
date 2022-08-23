@@ -11,7 +11,7 @@ export const AllPosts = () => {
 
   // hämtar Api
   useEffect(() => {
-    axios.get<IPost[]>("http://localhost:3000/users").then((res) => {
+    axios.get<IPost[]>("http://localhost:3000/users").then(res => {
       let GetAllPostsFromApi = res.data.map((post: IPost) => {
         return new Post(post.id, post.title, post.description, post.date);
       });
@@ -42,6 +42,7 @@ export const AllPosts = () => {
     );
   });
   let logout = `/`;
+
   return (
     <>
       <h1>Dina sparade inlägg</h1>
