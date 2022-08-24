@@ -2,7 +2,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Editor as TinyMCEEditor } from "tinymce";
-import { setConstantValue } from "typescript";
+import "./newPost.css";
 
 export function NewPost() {
   interface IPostAPI {
@@ -21,10 +21,10 @@ export function NewPost() {
 
     axios
       .post<IPostAPI>("http://localhost:3000/users/add", ObjContent)
-      .then((res) => {
+      .then(res => {
         console.log(res);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err, "Inte skickat");
       });
   }
@@ -40,20 +40,21 @@ export function NewPost() {
   // Gör om värdena till objekt som ska skicka till API
   const ObjContent = { title, description };
 
-
   // använder oss av inputs values
-  function SaveTitle(e:ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>){
-    let name:string = e.target.name;
-    if(name == 'title' ){
-        setTitle( e.target.value);
+  function SaveTitle(
+    e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>
+  ) {
+    let name: string = e.target.name;
+    if (name == "title") {
+      setTitle(e.target.value);
     }
   }
- 
+
   return (
     <>
-      <label htmlFor="title">titel</label>
+      <label htmlFor="title">Titel</label>
       <input type="text" name="title" onChange={SaveTitle} />
-      
+
       <Editor
         onEditorChange={handleUpdate}
         value={description}
